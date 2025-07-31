@@ -1,7 +1,7 @@
 # Projeto de Mestrado
 # Sistema Inteligente de Apoio ao Diagnóstico de Lesões de Pele
 
-Este projeto é uma plataforma web completa desenvolvida em Django, projetada como uma ferramenta de pesquisa para o treinamento, avaliação e análise comparativa de pipelines de Machine Learning para a classificação de imagens de lesões de pele. O sistema foi desenvolvido como parte de uma dissertação de mestrado e implementa técnicas avançadas, incluindo extração de características híbridas, otimização com algoritmos evolucionários e aumento de dados.
+Este projeto é uma plataforma web desenvolvida em Django, um Produto Mínimo Viável ou Prova de Conceito, projetada como uma ferramenta de pesquisa para o treinamento, avaliação e análise comparativa de pipelines de Machine Learning para a classificação de imagens de lesões de pele. O sistema foi desenvolvido como parte de uma dissertação de mestrado e implementa técnicas avançadas, incluindo extração de características híbridas, otimização com algoritmos evolucionários e aumento de dados.
 
 ## Funcionalidades Principais
 
