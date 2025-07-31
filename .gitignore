@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# Certificados temporários
+tmp/
+certs_*/
+
+# Arquivos de log e dumps
+*.log
+*.out
+*.bak
+*.swp
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+
+# Outros
+*.egg-info/
+
+# Ambiente
+.env
+
+log.txt
+mobilenet_v2_imagenet.h5

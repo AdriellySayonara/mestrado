@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Laudo Médico - {{ laudo.paciente }}</title>
+    <style>
+        /* ... (CSS, sem alterações) ... */
+    </style>
+</head>
+<body>
+    <header><h1>Laudo de Análise de Imagem Dermatológica</h1></header>
+    
+    <main>
+        <table>
+            <tr><th>ID do Laudo</th><td>#{{ laudo.pk }}</td></tr>
+            <!-- === CORREÇÃO APLICADA AQUI === -->
+            <tr><th>Paciente</th><td>{{ laudo.paciente }}</td></tr>
+            <tr><th>Médico Solicitante</th><td>{{ laudo.medico }} (CRM: {{ laudo.medico.crm }})</td></tr>
+            <!-- =============================== -->
+            <tr><th>Data do Laudo</th><td>{{ laudo.data_laudo|date:"d/m/Y, H:i" }}</td></tr>
+            <tr><th style="background-color: #e3f2fd;">Resultado Sugerido (IA)</th><td style="font-weight: bold; font-size: 14pt;">{{ laudo.resultado_classificacao|upper }}</td></tr>
+            <tr><th>Nível de Confiança (IA)</th><td>{{ laudo.confianca|floatformat:2 }}%</td></tr>
+            <tr><th>Modelo Utilizado</th><td>{{ laudo.modelo_utilizado.nome_versao }}</td></tr>
+        </table>
+        
+        <div class="image-container">
+            <h3>Imagem Original Analisada</h3>
+            {% if imagem_data_uri %}
+                <img src="{{ imagem_data_uri }}">
+            {% else %}
+                <p>Imagem não disponível.</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer>Este é um laudo gerado por um sistema de apoio à decisão e não substitui a avaliação clínica.</footer>
+</body>
+</html>

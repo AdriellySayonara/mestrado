@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load custom_filters %}
+
+{% block title %}Painel de Análise Comparativa{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mb-2">Painel de Análise Comparativa de Pipelines</h1>
+    
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-filter"></i> Selecione os Critérios de Análise</div>
+        <div class="card-body">
+            <form method="get" action="" class="row align-items-end">
+                <div class="col-md-5">{{ filter_form.cenario_clinico|as_crispy_field }}</div>
+                <div class="col-md-5">{{ filter_form.final_classifier|as_crispy_field }}</div>
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-primary">Analisar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if selected_scenario and selected_classifier %}
+        <hr>
+        <h2>Resultados para "{{ selected_scenario }}" com o Classificador "{{ selected_classifier }}"</h2>
+
+        <!-- Verifica se há pelo menos DUAS combinações de pipeline para comparar -->
+        {% if modelos_count > 1 %}
+            <div class="row">
+                {% if chart_acuracia_uri %}<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><h4>Comparativo de Acurácia</h4></div><div class="card-body text-center"><img src="{{ chart_acuracia_uri }}" class="img-fluid"></div></div></div>{% endif %}
+                {% if chart_sensibilidade_uri %}<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><h4>Comparativo de Sensibilidade</h4></div><div class="card-body text-center"><img src="{{ chart_sensibilidade_uri }}" class="img-fluid"></div></div></div>{% endif %}
+                {% if chart_especificidade_uri %}<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><h4>Comparativo de Especificidade</h4></div><div class="card-body text-center"><img src="{{ chart_especificidade_uri }}" class="img-fluid"></div></div></div>{% endif %}
+                {% if chart_auc_roc_uri %}<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><h4>Comparativo de AUC-ROC</h4></div><div class="card-body text-center"><img src="{{ chart_auc_roc_uri }}" class="img-fluid"></div></div></div>{% endif %}
+                {% if chart_kappa_uri %}<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><h4>Comparativo de Kappa</h4></div><div class="card-body text-center"><img src="{{ chart_kappa_uri }}" class="img-fluid"></div></div></div>{% endif %}
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header"><h4>Legenda das Combinações de Pipeline (Eixo X)</h4></div>
+                <div class="card-body">
+                    <dl class="row">
+                        {% for key in pipeline_keys %}
+                            <div class="col-12 d-flex border-bottom py-2">
+                                <div class="col-sm-3"><strong><code>Comb. {{ forloop.counter0|int_to_char }}</code></strong></div>
+                                <div class="col-sm-9">
+                                    <div style="white-space: pre-wrap;">{{ key }}</div>
+                                    <div class="mt-1"><small class="text-muted"><strong>Modelos Agrupados:</strong> 
+                                        {% for version in pipeline_map|get_item:key %}
+                                            <span class="badge bg-secondary me-1">{{ version }}</span>
+                                        {% endfor %}
+                                    </small></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </dl>
+                </div>
+            </div>
+
+        {% else %}
+            <div class="alert alert-warning mt-4">
+                <strong>Análise Comparativa Indisponível.</strong><br>
+                É necessário ter treinado pelo menos dois pipelines de pré-processamento diferentes para o cenário e classificador selecionados para gerar a comparação.
+            </div>
+        {% endif %}
+
+    {% else %}
+        <div class="alert alert-info mt-4">Por favor, selecione um cenário e um classificador para gerar a análise.</div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Não há necessidade de scripts customizados para esta página -->
+{% endblock %}

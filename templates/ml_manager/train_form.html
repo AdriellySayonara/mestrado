@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Fábrica de Modelos Experimentais{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Fábrica de Modelos Experimentais</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="card mb-4"><div class="card-header">1. Identificação e Dados</div>
+            <div class="card-body">
+                {{ form.version_name|as_crispy_field }}
+                {{ form.dataset_zip|as_crispy_field }}
+                {{ form.clinical_scenario|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="card mb-4"><div class="card-header">2. Pré-processamento Global</div>
+            <div class="card-body">
+                {{ form.apply_augmentation|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="card mb-4"><div class="card-header">3. Tipo de Pipeline Experimental</div>
+            <div class="card-body">
+                {{ form.pipeline_type|as_crispy_field }}
+            </div>
+        </div>
+
+        <div id="cnn_options_section" class="card mb-4">
+            <div class="card-header">4. Configuração da Rede Neural</div>
+            <div class="card-body">
+                {{ form.base_architecture|as_crispy_field }}
+                <hr>
+                {{ form.use_fine_tuning|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div id="classic_classifier_section">
+            <div class="card mb-4"><div class="card-header">5. Opções do Pipeline Híbrido/Clássico</div>
+                <div class="card-body">
+                    <div id="fine_tuning_split_ratio_div">
+                        {{ form.fine_tuning_split_ratio|as_crispy_field }}
+                        <hr>
+                    </div>
+                    {{ form.augmentation_method_classic|as_crispy_field }}
+                    <div id="smote_options" class="sub-options" style="display: none;">
+                        <h5>Opções do SMOTE</h5>
+                        {{ form.smote_k_neighbors|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4"><div class="card-header">6. Otimização e Validação</div>
+                <div class="card-body">
+                    {{ form.feature_selection_method|as_crispy_field }}
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">{{ form.k_folds|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ form.n_repeats|as_crispy_field }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4"><div class="card-header">7. Classificador Final</div>
+                <div class="card-body">
+                    {{ form.final_classifier|as_crispy_field }}
+                    
+                    <div id="random_forest_params" class="classifier-params sub-options" style="display: none;">
+                        <h5>Parâmetros do Random Forest</h5>
+                        {{ form.rf_n_estimators|as_crispy_field }}
+                        {{ form.rf_max_depth|as_crispy_field }}
+                    </div>
+                    <div id="svm_params" class="classifier-params sub-options" style="display: none;">
+                        <h5>Parâmetros do SVM</h5>
+                        {{ form.svm_c|as_crispy_field }}
+                        {{ form.svm_kernel|as_crispy_field }}
+                    </div>
+                    <div id="mlp_params" class="classifier-params sub-options" style="display: none;">
+                        <h5>Parâmetros do MLP</h5>
+                        {{ form.mlp_hidden_layer_sizes|as_crispy_field }}
+                        {{ form.mlp_max_iter|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Iniciar Treinamento</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .sub-options { margin-top: 1rem; padding-left: 1.5rem; border-left: 3px solid #eee; }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/train_form_logic.js' %}"></script>
+{% endblock %}
