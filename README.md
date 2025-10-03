@@ -73,7 +73,9 @@ python manage.py runserver
 ### Terminal 2: Start the Celery Worker
 
 ### On Windows, use the '-P solo' flag for stability
+```
 celery -A config worker --loglevel=info -P solo
+```
 Important: Make sure your Redis service is running in the background before starting the Celery worker.
 
 
