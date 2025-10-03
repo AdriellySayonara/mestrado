@@ -31,8 +31,8 @@ Follow the steps below to set up the development environment and run the project
 
 Open your terminal and clone the GitHub repository:
 ```
-git clone [YOUR_REPOSITORY_URL_HERE]
-cd [PROJECT_FOLDER_NAME]
+git clone https://github.com/AdriellySayonara/mestrado.git
+cd mestrado
 ```
 # Create the virtual environment
 ```
