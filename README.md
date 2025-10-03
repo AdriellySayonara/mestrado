@@ -30,30 +30,34 @@ Follow the steps below to set up the development environment and run the project
 ### Clone the Repository
 
 Open your terminal and clone the GitHub repository:
-```bash
+```
 git clone [YOUR_REPOSITORY_URL_HERE]
 cd [PROJECT_FOLDER_NAME]
-
+```
 # Create the virtual environment
+```
 python -m venv venv
-
+```
 # Activate the virtual environment
-# On Windows:
+## On Windows:
+```
 venv\Scripts\activate
+```
 
 ### Install Dependencies
-
+```
 pip install -r requirements.txt
-
+```
 ### Configure the Database
+```
 python manage.py migrate
-
+```
 ### Create a Superuser (Administrator)
+```
 python manage.py createsuperuser
-
+```
 ## **Step 4: How to Run the Project**
 
-```markdown
 ## Running the Project
 
 To run the full system, you will need **two separate terminals**, both with the virtual environment activated.
@@ -62,9 +66,9 @@ To run the full system, you will need **two separate terminals**, both with the 
 
 This terminal will run the web application.
 
-```bash
+```
 python manage.py runserver
-
+```
 
 ### Terminal 2: Start the Celery Worker
 
@@ -73,13 +77,9 @@ celery -A config worker --loglevel=info -P solo
 Important: Make sure your Redis service is running in the background before starting the Celery worker.
 
 
-## **Passo 5: Como Usar o Sistema**
-
-
-
 ## **Step 5: How to Use the System**
 
-```markdown
+
 ## How to Use
 
 1.  **Access the Admin:** Go to `http://127.0.0.1:8000/admin/` and log in with your superuser account.
