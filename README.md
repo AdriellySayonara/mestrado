@@ -1,104 +1,108 @@
-# Projeto de Mestrado
-# Sistema Inteligente de Apoio ao Diagnóstico de Lesões de Pele
 
-Este projeto é uma plataforma web desenvolvida em Django, um Produto Mínimo Viável ou Prova de Conceito, projetada como uma ferramenta de identificação de hanseníase e outras lesões de pele por meio de imagens dessas lesões. Dentro do projeto, também foram criados módulo para o treinamento, avaliação e análise comparativa de pipelines de Machine Learning para a classificação de imagens de lesões de pele. O sistema foi desenvolvido como parte de uma dissertação de mestrado e implementa técnicas avançadas, incluindo extração de características híbridas, otimização com algoritmos evolucionários e aumento de dados.
+# Intelligent System for Supporting the Diagnosis of Skin Lesions
 
-## Funcionalidades Principais
+This project is a web platform developed in Django, a Minimum Viable Product or Proof of Concept, designed as a tool for identifying leprosy and other skin lesions through lesion images. Within the project, modules were also created for the training, evaluation, and comparative analysis of Machine Learning pipelines for the classification of skin lesion images. The system was developed as part of a master’s dissertation and implements advanced techniques, including hybrid feature extraction, optimization with evolutionary algorithms, and data augmentation.
 
-- **Interfaces de Usuário:** Painéis dedicados para Médicos e Pacientes.
-- **Fábrica de Modelos:** Uma interface de pesquisa para configurar e treinar múltiplos modelos de IA com parâmetros customizáveis.
-- **Pipelines Avançados:** Suporte para extração de features clássicas e de Deep Learning, SMOTE, cGANs, e Algoritmos Genéticos.
-- **Análise de Resultados:** Um painel consolidado para comparar a performance de diferentes experimentos através de métricas estatísticas e gráficos de box plot.
-- **IA Explicável (XAI):** Geração de gráficos de importância de features e mapas de calor Grad-CAM.
-- **Laudos em PDF:** Geração automática de laudos para pacientes.
+## Main Features
 
-## Pré-requisitos
+- **User Interfaces:** Dedicated dashboards for Doctors and Patients.  
+- **Model Factory:** A research interface to configure and train multiple AI models with customizable parameters.  
+- **Advanced Pipelines:** Support for classical and Deep Learning feature extraction, SMOTE, cGANs, and Genetic Algorithms.  
+- **Results Analysis:** A consolidated dashboard to compare the performance of different experiments using statistical metrics and box plot charts.  
+- **Explainable AI (XAI):** Generation of feature importance plots and Grad-CAM heatmaps.  
+- **PDF Reports:** Automatic generation of patient reports.  
 
-Antes de começar, garanta que você tem os seguintes softwares instalados em seu sistema:
+## Prerequisites
 
-- **Python:** Versão 3.11.x
-- **Git:** Para clonar o repositório.
-- *No Windows, você pode instalar a partir do [release oficial da Microsoft](https://github.com/microsoftarchive/redis/releases)
-- - **GTK+ for Windows (Apenas para Windows):** Esta é uma dependência de sistema **externa** ao Python, necessária para a biblioteca `WeasyPrint` (geração de PDF) funcionar.
-  - 1. Faça o download do instalador em: [GTK+ for Windows Runtime Environment](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases).
-  - **2.** Execute o instalador e siga os passos.
+Before getting started, make sure you have the following software installed on your system:
 
-  ## Guia de Instalação
+- **Python:** Version 3.11.x  
+- **Git:** To clone the repository.  
+- *On Windows, you can install it from the [official Microsoft release](https://github.com/microsoftarchive/redis/releases)*  
+- **GTK+ for Windows (Windows only):** This is an **external** system dependency required for the `WeasyPrint` library (PDF generation) to work.  
+  - 1. Download the installer at: [GTK+ for Windows Runtime Environment](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases).  
+  - 2. Run the installer and follow the steps.  
 
-Siga os passos abaixo para configurar o ambiente de desenvolvimento e rodar o projeto localmente.
+## Installation Guide
 
-### Clonar o Repositório
+Follow the steps below to set up the development environment and run the project locally.
 
-Abra seu terminal e clone o repositório do GitHub:
+### Clone the Repository
+
+Open your terminal and clone the GitHub repository:
 ```bash
-git clone [URL_DO_SEU_REPOSITÓRIO_AQUI]
-cd [NOME_DA_PASTA_DO_PROJETO]
+git clone [YOUR_REPOSITORY_URL_HERE]
+cd [PROJECT_FOLDER_NAME]
 
-# Criar o ambiente virtual
+# Create the virtual environment
 python -m venv venv
 
-# Ativar o ambiente virtual
-# No Windows:
+# Activate the virtual environment
+# On Windows:
 venv\Scripts\activate
 
-### Instalar as dependências
+### Install Dependencies
 
 pip install -r requirements.txt
 
-### Configurar o Banco de Dados
+### Configure the Database
 python manage.py migrate
 
-### Criar um Superusuário (Administrador)
+### Create a Superuser (Administrator)
 python manage.py createsuperuser
 
-## **Passo 4: Como Executar o Projeto**
+## **Step 4: How to Run the Project**
 
 ```markdown
-## Executando o Projeto
+## Running the Project
 
-Para rodar o sistema completo, você precisará de **dois terminais separados**, ambos com o ambiente virtual ativado.
+To run the full system, you will need **two separate terminals**, both with the virtual environment activated.
 
-### Terminal 1: Iniciar o Servidor Django
+### Terminal 1: Start the Django Server
 
-Este terminal irá rodar a aplicação web.
+This terminal will run the web application.
 
 ```bash
 python manage.py runserver
 
-### Terminal 2: Iniciar o Worker do Celery
 
-### No Windows, use a flag '-P solo' para estabilidade
+### Terminal 2: Start the Celery Worker
+
+### On Windows, use the '-P solo' flag for stability
 celery -A config worker --loglevel=info -P solo
-Importante: Garanta que o seu serviço Redis esteja rodando em segundo plano antes de iniciar o worker do Celery.
+Important: Make sure your Redis service is running in the background before starting the Celery worker.
 
 
 ## **Passo 5: Como Usar o Sistema**
 
 
+
+## **Step 5: How to Use the System**
+
 ```markdown
-## Como Usar
+## How to Use
 
-1.  **Acesse o Admin:** Vá para `http://127.0.0.1:8000/admin/` e faça login com seu superusuário.
-2.  **Cadastre um Médico e um Paciente:**
-    -   Primeiro, crie os `Users` para um médico e um paciente.
-    -   Depois, vá para as seções "Medicos" e "Pacientes" para criar os perfis correspondentes, associando o paciente ao médico.
-3.  **Cadastre-se como Médico:** Alternativamente, acesse a página inicial e use a opção "Cadastrar como Médico".
-4.  **Execute um Experimento:**
-    -   Faça login como superusuário.
-    -   Acesse o menu **"Fábrica de Modelos"**.
-    -   Configure um experimento, faça o upload de um dataset (`.zip` com pastas por classe) e inicie o treinamento. Acompanhe o progresso no terminal do Celery.
-5.  **Use o Sistema como Médico:**
-    -   Faça login com a conta do médico.
-    -   No seu painel, cadastre novos pacientes ou solicite a análise de uma imagem para um paciente existente.
-    -   Acompanhe o histórico e clique em um laudo para ver os detalhes, incluindo a análise XAI (Grad-CAM) e a opção de baixar o PDF.
-6. **Analise os Resultados:**
-    -   Acesse o menu **"Painel de Resultados"**.
-    -   Use os filtros para selecionar um cenário e um classificador e veja os gráficos comparativos.
+1.  **Access the Admin:** Go to `http://127.0.0.1:8000/admin/` and log in with your superuser account.
+2.  **Register a Doctor and a Patient:**
+    -   First, create `Users` for a doctor and a patient.
+    -   Then, go to the "Doctors" and "Patients" sections to create the corresponding profiles, linking the patient to the doctor.
+3.  **Sign Up as a Doctor:** Alternatively, go to the home page and use the "Sign Up as Doctor" option.
+4.  **Run an Experiment:**
+    -   Log in as superuser.
+    -   Go to the **"Model Factory"** menu.
+    -   Configure an experiment, upload a dataset (`.zip` with folders per class), and start the training. Track the progress in the Celery terminal.
+5.  **Use the System as a Doctor:**
+    -   Log in with the doctor account.
+    -   On your dashboard, register new patients or request the analysis of an image for an existing patient.
+    -   Check the history and click on a report to see the details, including the XAI analysis (Grad-CAM) and the option to download the PDF.
+6. **Analyze Results:**
+    -   Go to the **"Results Dashboard"** menu.
+    -   Use the filters to select a scenario and a classifier and view the comparative charts.
 
-## Estrutura do Projeto
+## Project Structure
 
--   `config/`: Configurações principais do Django (`settings.py`, `urls.py`).
--   `core/`: App para páginas e lógicas centrais (página inicial).
--   `users/`: App para gerenciamento de usuários (Médicos, Pacientes).
--   `laudos/`: App para a lógica de laudos, classificação em tempo real e visualizações.
--   `ml_manager/`: App para a "Fábrica de Modelos" e o "Painel de Resultados".
+-   `config/`: Main Django configurations (`settings.py`, `urls.py`).
+-   `core/`: App for central pages and logic (home page).
+-   `users/`: App for user management (Doctors, Patients).
+-   `laudos/`: App for report logic, real-time classification, and visualizations.
+-   `ml_manager/`: App for the "Model Factory" and the "Results Dashboard".
