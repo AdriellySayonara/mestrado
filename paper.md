@@ -45,7 +45,7 @@ authors:
     orcid: 0000-0003-2558-6602
     affiliation: "1 , 2"
 
-# affiliations:
+affiliations:
   - name: Department of Biomedical Engineering, Federal University of Pernambuco, Brazil
     index: 1
   - name: Graduate Program in Computer Engineering, University of Pernambuco, Brazil
