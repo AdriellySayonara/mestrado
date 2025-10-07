@@ -50,24 +50,24 @@ authors:
     index: 1
   - name: Graduate Program in Computer Engineering, University of Pernambuco, Brazil
     index: 2
-    
+
 date: 5 April 2025
 bibliography: paper.bib
 ---
 
 # Summary
 
-`DermAI` is an open-source, web-based research software for the differential diagnosis of leprosy and skin cancer using clinical and dermoscopic images. Built with Django and leveraging a hybrid machine learning pipeline, it combines pre-trained convolutional neural networks (CNNs)—EfficientNetB0, InceptionV3, and DenseNet201—as feature extractors with classical classifiers (MLP, Random Forest, SVM) [@fonseca2022early], [@de2023emotion] for robust lesion classification. The system supports six clinically motivated diagnostic scenarios, ranging from multi-class differentiation of leprosy subtypes to binary discrimination between malignant and benign lesions.
+DermAI is an open-source, web-based research software for the differential diagnosis of leprosy and skin cancer using clinical and dermoscopic images. Built with Django and leveraging a hybrid machine learning pipeline, it combines pre-trained convolutional neural networks (CNNs)—EfficientNetB0, InceptionV3, and DenseNet201—as feature extractors with classical classifiers (MLP, Random Forest, SVM) [@fonseca2022early], [@de2023emotion] for robust lesion classification. The system supports six clinically motivated diagnostic scenarios, ranging from multi-class differentiation of leprosy subtypes to binary discrimination between malignant and benign lesions.
 
 A core innovation is the integrated **Model Factory**, which enables researchers to experiment with different combinations of feature extractors, data balancing (SMOTE), lesion segmentation (U-Net), and explainable AI (Grad-CAM). The software also provides a clinician-facing interface that generates interpretable diagnostic reports with visual heatmaps highlighting regions of interest.
 
-`DermAI` addresses a critical gap in digital dermatology for neglected tropical diseases, particularly in low-resource settings where leprosy remains endemic [@barbieri2022reimagining]. By providing a modular, reusable, and transparent platform, it supports both clinical decision support and reproducible research in medical image analysis[@tan2025clinical].
+DermAI addresses a critical gap in digital dermatology for neglected tropical diseases, particularly in low-resource settings where leprosy remains endemic [@barbieri2022reimagining]. By providing a modular, reusable, and transparent platform, it supports both clinical decision support and reproducible research in medical image analysis[@tan2025clinical].
 
 # Statement of Need
 
 Current open-source tools for skin lesion analysis rarely address the **differential diagnosis between infectious and neoplastic skin conditions**, especially neglected diseases like leprosy [@oliveira2025dermai]. Moreover, many existing systems lack modularity, interpretability, or integration into a deployable clinical workflow.
 
-`DermAI` fills this niche by offering:
+DermAI fills this niche by offering:
 - A **hybrid modeling approach** that decouples feature extraction from classification, enabling flexible experimentation;
 - Support for **multi-scenario evaluation**, reflecting real-world diagnostic challenges;
 - Built-in **explainability** via Grad-CAM to foster clinician trust;
@@ -86,8 +86,8 @@ The software has been validated on the public *Atlas Dermatológico* dataset [@a
 
 # Quality Control
 
-`DermAI` is implemented in Python 3 using standard scientific libraries (TensorFlow/Keras, scikit-learn) and the Django web framework. The repository includes:
-- A `requirements.txt` for dependency management;
+DermAI is implemented in Python 3 using standard scientific libraries (TensorFlow/Keras, scikit-learn) and the Django web framework. The repository includes:
+- A requirements.txt for dependency management;
 - Structured Django app architecture with clear separation of concerns;
 - Example training scripts and model serialization;
 - Automated tests (under development) and continuous integration (planned).
