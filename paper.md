@@ -53,7 +53,7 @@ bibliography: paper.bib
 
 # Summary
 
-`DermAI` is an open-source, web-based research software for the differential diagnosis of leprosy and skin cancer using clinical and dermoscopic images. Built with Django and leveraging a hybrid machine learning pipeline, it combines pre-trained convolutional neural networks (CNNs)—EfficientNetB0, InceptionV3, and DenseNet201—as feature extractors with classical classifiers (MLP, Random Forest, SVM) [@fonseca2022early], [@tawhid2021spectrogram] for robust lesion classification. The system supports six clinically motivated diagnostic scenarios, ranging from multi-class differentiation of leprosy subtypes to binary discrimination between malignant and benign lesions.
+`DermAI` is an open-source, web-based research software for the differential diagnosis of leprosy and skin cancer using clinical and dermoscopic images. Built with Django and leveraging a hybrid machine learning pipeline, it combines pre-trained convolutional neural networks (CNNs)—EfficientNetB0, InceptionV3, and DenseNet201—as feature extractors with classical classifiers (MLP, Random Forest, SVM) [@fonseca2022early], [@de2023emotion] for robust lesion classification. The system supports six clinically motivated diagnostic scenarios, ranging from multi-class differentiation of leprosy subtypes to binary discrimination between malignant and benign lesions.
 
 A core innovation is the integrated **Model Factory**, which enables researchers to experiment with different combinations of feature extractors, data balancing (SMOTE), lesion segmentation (U-Net), and explainable AI (Grad-CAM). The software also provides a clinician-facing interface that generates interpretable diagnostic reports with visual heatmaps highlighting regions of interest.
 
