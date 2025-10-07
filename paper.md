@@ -47,8 +47,8 @@ authors:
     index: 1
   - name: Graduate Program in Computer Engineering, University of Pernambuco, Brazil
     index: 2
-date: 5 April 2025
-bibliography: paper.bib
+    date: 5 April 2025
+    bibliography: paper.bib
 ---
 
 # Summary
