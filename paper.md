@@ -1,52 +1,56 @@
 ---
 title: 'DermAI: An Open-Source Web Framework for Hybrid Deep Learning in the Differential Diagnosis of Leprosy and Skin Cancer'
+
 tags:
-- Python
-- Django
-- deep learning
-- medical imaging
-- skin lesion classification
-- transfer learning
-- explainable AI
+  - Python
+  - Django
+  - deep learning
+  - medical imaging
+  - skin lesion classification
+  - transfer learning
+  - explainable AI
+
 authors:
-- name: Fernando Antonio de Oliveira
-  orcid: 0009-0002-9865-2834
-  affiliation: "1"
-- name: Adrielly Sayonara de Oliveira Silva
-  orcid: 0009-0004-2220-8053
-  affiliation: "1"
-- name: José Barbosa de Araújo Neto
-  orcid: 0009-0007-4994-1695
-  affiliation: "1"
-- name: Camila Tiodista de Lima
-  orcid: 0009-0007-6013-7059
-  affiliation: "1"
-- name: Flávio Secco Fonseca
-  orcid: 0000-0003-4956-1135
-  affiliation: "2"
-- name: Ana Clara Gomes da Silva
-  orcid: 0000-0002-2823-5763
-  affiliation: "2"
-- name: Clarisse Lima
-  orcid: 0000-0003-1198-8627
-  affiliation: "1"
-- name: Maíra Araújo de Santana
-  orcid: 0000-0002-1796-7862
-  affiliation: "1"
-- name: Juliana Carneiro Gomes
-  orcid: 0000-0002-0785-0767
-  affiliation: "1"
-- name: Giselle Machado Magalhães Moreno 
-  orcid: 0000-0003-4076-3494
-  affiliation: "1"
-- name: Wellington Pinheiro dos Santos
-  orcid: 0000-0003-2558-6602
-  affiliation: "1 , 2"
+  - name: Fernando Antonio de Oliveira
+    orcid: 0009-0002-9865-2834
+    affiliation: "1"
+  - name: Adrielly Sayonara de Oliveira Silva
+    orcid: 0009-0004-2220-8053
+    affiliation: "1"
+  - name: José Barbosa de Araújo Neto
+    orcid: 0009-0007-4994-1695
+    affiliation: "1"
+  - name: Camila Tiodista de Lima
+    orcid: 0009-0007-6013-7059
+    affiliation: "1"
+  - name: Flávio Secco Fonseca
+    orcid: 0000-0003-4956-1135
+    affiliation: "2"
+  - name: Ana Clara Gomes da Silva
+    orcid: 0000-0002-2823-5763
+    affiliation: "2"
+  - name: Clarisse Lima
+    orcid: 0000-0003-1198-8627
+    affiliation: "1"
+  - name: Maíra Araújo de Santana
+    orcid: 0000-0002-1796-7862
+    affiliation: "1"
+  - name: Juliana Carneiro Gomes
+    orcid: 0000-0002-0785-0767
+    affiliation: "1"
+  - name: Giselle Machado Magalhães Moreno 
+    orcid: 0000-0003-4076-3494
+    affiliation: "1"
+  - name: Wellington Pinheiro dos Santos
+    orcid: 0000-0003-2558-6602
+    affiliation: "1 , 2"
+
 # affiliations:
-- name: Department of Biomedical Engineering, Federal University of Pernambuco, Brazil
-  index: 1
-- name: Graduate Program in Computer Engineering, University of Pernambuco, Brazil
-  index: 2
+  - name: Department of Biomedical Engineering, Federal University of Pernambuco, Brazil
+    index: 1
+  - name: Graduate Program in Computer Engineering, University of Pernambuco, Brazil
+    index: 2
+    
 date: 5 April 2025
 bibliography: paper.bib
 ---
